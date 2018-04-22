@@ -13,7 +13,7 @@ public class Email {
     public static void sendConfirmationMail(String userEmail, String recipient) {
         String subject = "Confirmation for Hospital ";
         String[] to = {recipient};
-        String confirmationCode = AES.encrypt(userEmail, "hospitalreview");
+        String confirmationCode = AES.encrypt(userEmail, "hospital_review");
         String body = "Thank you for registering an account at our website.\nPlease click the link below" +
                 " confirm your registration:\n" +
                 "" + confirmationCode;
