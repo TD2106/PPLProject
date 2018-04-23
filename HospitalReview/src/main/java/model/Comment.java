@@ -7,14 +7,16 @@ public class Comment {
     private String content;
     private String date;
     private String time;
+    private int isEnable;
 
-    public Comment(int commentID, int patientID, int doctorID, String content, String date, String time) {
+    public Comment(int commentID, int patientID, int doctorID, String content, String date, String time, int isEnable) {
         this.commentID = commentID;
         this.patientID = patientID;
         this.doctorID = doctorID;
         this.content = content;
         this.date = date;
         this.time = time;
+        this.isEnable = isEnable;
     }
 
     public int getCommentID() {
@@ -63,5 +65,13 @@ public class Comment {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public int getIsEnable() {
+        return isEnable;
+    }
+
+    public void setIsEnable(int isEnable) {
+        this.isEnable = isEnable;
     }
 }

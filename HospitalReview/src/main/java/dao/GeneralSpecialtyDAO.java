@@ -5,7 +5,7 @@ import dbconnection.DBConnection;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class GeneralSpecialty {
+public class GeneralSpecialtyDAO {
     private static Connection connection;
 
     static {

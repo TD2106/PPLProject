@@ -6,9 +6,9 @@ public class Hospital extends User {
     private String website;
     private String adminName;
     private String adminEmail;
-    private boolean isActivated;
+    private int isActivated;
 
-    public Hospital(int userID, String email, String password, String userType, String hospitalName, String address, String website, String adminName, String adminEmail, boolean isActivated) {
+    public Hospital(int userID, String email, String password, String userType, String hospitalName, String address, String website, String adminName, String adminEmail, int isActivated) {
         super(userID, email, password, userType);
         this.hospitalName = hospitalName;
         this.address = address;
@@ -62,11 +62,11 @@ public class Hospital extends User {
         this.adminEmail = adminEmail;
     }
 
-    public boolean isActivated() {
+    public int isActivated() {
         return isActivated;
     }
 
-    public void setActivated(boolean activated) {
+    public void setActivated(int activated) {
         isActivated = activated;
     }
 }

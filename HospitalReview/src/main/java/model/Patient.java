@@ -5,9 +5,9 @@ public class Patient extends User {
     private String lastName;
     private String gender;
     private String address;
-    private boolean isActivated;
+    private int isActivated;
 
-    public Patient(int userID, String email, String password, String userType, String firstName, String lastName, String gender, String address, boolean isActivated) {
+    public Patient(int userID, String email, String password, String userType, String firstName, String lastName, String gender, String address, int isActivated) {
         super(userID, email, password, userType);
         this.firstName = firstName;
         this.lastName = lastName;
@@ -52,11 +52,11 @@ public class Patient extends User {
         this.address = address;
     }
 
-    public boolean isActivated() {
+    public int isActivated() {
         return isActivated;
     }
 
-    public void setActivated(boolean activated) {
+    public void setActivated(int activated) {
         isActivated = activated;
     }
 }
