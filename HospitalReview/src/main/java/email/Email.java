@@ -7,8 +7,8 @@ import javax.mail.internet.*;
 import aes.AES;
 
 public class Email {
-    private static String USER_NAME = "";  // GMail user name (just the part before "@gmail.com")
-    private static String PASSWORD = ""; // GMail password
+    private static String USER_NAME = "hospitalreviewppl@gmail.com";  // GMail user name (just the part before "@gmail.com")
+    private static String PASSWORD = "admin113"; // GMail password
 
     public static void sendConfirmationMail(String userEmail, String recipient) {
         String subject = "Confirmation for Hospital ";
