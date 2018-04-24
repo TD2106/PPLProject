@@ -50,4 +50,16 @@ public class UserDAO {
         }
         return user;
     }
+
+    public static User getUser(int userID) throws SQLException {
+        String sql = "SELECT email, password, user_type FROM user WHERE user_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, userID);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        User user = null;
+        while (resultSet.next()) {
+            user = new User(userID, resultSet.getString("email"), resultSet.getString("password"), resultSet.getString("user_type"));
+        }
+        return user;
+    }
 }
