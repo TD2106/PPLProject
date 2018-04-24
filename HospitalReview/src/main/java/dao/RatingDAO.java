@@ -77,7 +77,7 @@ public class RatingDAO {
         String sql = "SELECT patient_id,rating,is_enable FROM rating WHERE doctor_id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1, doctorID);
-        ArrayList<Rating> ratings = null;
+        ArrayList<Rating> ratings = new ArrayList<>();
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
             ratings.add(new Rating(resultSet.getInt("patient_id"), doctorID, resultSet.getInt("rating"), resultSet.getInt("is_enable")));
@@ -89,7 +89,7 @@ public class RatingDAO {
         String sql = "SELECT patient_id,rating FROM rating WHERE doctor_id = ? and is_enable = 1";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1, doctorID);
-        ArrayList<Rating> ratings = null;
+        ArrayList<Rating> ratings = new ArrayList<>();
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
             ratings.add(new Rating(resultSet.getInt("patient_id"), doctorID, resultSet.getInt("rating"), 1));
@@ -101,7 +101,7 @@ public class RatingDAO {
         String sql = "SELECT doctor_id,rating,is_enable FROM rating WHERE patient_id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1, patientID);
-        ArrayList<Rating> ratings = null;
+        ArrayList<Rating> ratings = new ArrayList<>();
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
             ratings.add(new Rating(patientID, resultSet.getInt("doctor_id"), resultSet.getInt("rating"), resultSet.getInt("is_enable")));
@@ -116,6 +116,6 @@ public class RatingDAO {
             result += rating.getRating();
         }
         if (ratings.size() == 0) return 0;
-        else return result /= ratings.size();
+        else return (result / ratings.size());
     }
 }

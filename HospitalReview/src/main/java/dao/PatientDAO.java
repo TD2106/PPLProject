@@ -21,7 +21,7 @@ public class PatientDAO {
     }
 
     public static void addPatient(String email, String password, String firstName, String lastName, String gender, String address) throws SQLException {
-        String sql = "{CALL add_patient(?,?,?,?,?,?,0)}";
+        String sql = "{CALL add_patient(?,?,?,?,?,?)}";
         CallableStatement callableStatement = connection.prepareCall(sql);
         callableStatement.setString(1, email);
         callableStatement.setString(2, password);

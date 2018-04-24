@@ -54,7 +54,7 @@ public class CommentDAO {
                 ", is_enable FROM comment WHERE doctor_id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1, doctorID);
-        ArrayList<Comment> comments = null;
+        ArrayList<Comment> comments = new ArrayList<Comment>();
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
             comments.add(new Comment(resultSet.getInt("comment_id"), resultSet.getInt("patient_id"),
@@ -69,7 +69,7 @@ public class CommentDAO {
                 " FROM comment WHERE doctor_id = ? AND is_enable = 1";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1, doctorID);
-        ArrayList<Comment> comments = null;
+        ArrayList<Comment> comments = new ArrayList<Comment>();
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
             comments.add(new Comment(resultSet.getInt("comment_id"), resultSet.getInt("patient_id"),
@@ -84,7 +84,7 @@ public class CommentDAO {
                 ", is_enable FROM comment WHERE patient_id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1, patientID);
-        ArrayList<Comment> comments = null;
+        ArrayList<Comment> comments = new ArrayList<Comment>();
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
             comments.add(new Comment(resultSet.getInt("comment_id"), patientID,
