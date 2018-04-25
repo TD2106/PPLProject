@@ -57,4 +57,27 @@ public class SpecificSpecialtyDAO {
         return result;
     }
 
+    public static ArrayList<SpecificSpecialty> getSpecificSpecialtiesOfGeneralSpecialty(int generalSpecialtyID) throws SQLException {
+        ArrayList<SpecificSpecialty> specificSpecialties = new ArrayList<>();
+        String sql = "SELECT specific_specialty_id FROM specific_specialty WHERE general_specialty_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, generalSpecialtyID);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            specificSpecialties.add(getSpecificSpecialty(resultSet.getInt("specific_specialty_id")));
+        }
+        return specificSpecialties;
+    }
+
+    public static ArrayList<SpecificSpecialty> getSpecificSpecialtiesOfDoctor(int doctorID) throws SQLException {
+        String sql = "SELECT DISTINCT specific_specialty_id FROM doctor_specific_specialty WHERE doctor_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, doctorID);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        ArrayList<SpecificSpecialty> specificSpecialties = new ArrayList<>();
+        while (resultSet.next()) {
+            specificSpecialties.add(getSpecificSpecialty(resultSet.getInt("specific_specialty_id")));
+        }
+        return specificSpecialties;
+    }
 }

@@ -1,11 +1,11 @@
 package dao;
 
 import dbconnection.DBConnection;
+import model.Patient;
+import model.User;
 
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class PatientDAO {
     private static Connection connection;
@@ -98,5 +98,37 @@ public class PatientDAO {
         callableStatement.execute();
     }
 
+    public static Patient getPatient(int patientID) throws SQLException {
+        User user = UserDAO.getUser(patientID);
+        String sql = "SELECT first_name, last_name, gender, address, is_activated FROM patient WHERE patient_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, patientID);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        Patient result = null;
+        while (resultSet.next()) {
+            result = new Patient(user.getUserID(), user.getEmail(), user.getPassword(), user.getUserType(),
+                    resultSet.getString("first_name"), resultSet.getString("last_name"), resultSet.getString("gender"),
+                    resultSet.getString("address"), resultSet.getInt("is_activated"));
+        }
+        return result;
+    }
 
+    public static ArrayList<Patient> getAllPatient() throws SQLException {
+        String sql = "SELECT patient_id FROM patient";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        ArrayList<Patient> patients = new ArrayList<>();
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            patients.add(getPatient(resultSet.getInt("patient_id")));
+        }
+        return patients;
+    }
+
+    public static void addPatientLanguage(int patientID, String language) throws SQLException {
+        String sql = "INSERT INTO patient_language(patient_id,language) VALUES(?,?)";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, patientID);
+        preparedStatement.setString(2, language);
+        preparedStatement.execute();
+    }
 }

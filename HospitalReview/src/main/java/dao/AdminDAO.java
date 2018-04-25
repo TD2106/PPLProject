@@ -28,5 +28,11 @@ public class AdminDAO {
         preparedStatement.execute();
     }
 
-
+    public static void updateAdmin(int userID, String email, String password) throws SQLException {
+        String sql = "UPDATE user SET email = ?, password = ? WHERE user_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(3, userID);
+        preparedStatement.setString(1, email);
+        preparedStatement.setString(2, password);
+    }
 }
