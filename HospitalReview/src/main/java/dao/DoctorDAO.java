@@ -3,7 +3,6 @@ package dao;
 import dbconnection.DBConnection;
 import model.Doctor;
 
-import javax.print.Doc;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -119,7 +118,7 @@ public class DoctorDAO {
         ArrayList<Doctor> doctors = new ArrayList<>();
         firstName = firstName.toUpperCase();
         lastName = lastName.toUpperCase();
-        String sql = "SELECT DISTINCT doctor_id FROM doctor JOIN doctor_specific_specialty ON " +
+        String sql = "SELECT DISTINCT doctor_id FROM doctor INNER JOIN doctor_specific_specialty ON " +
                 "doctor.doctor_id = doctor_specific_specialty.doctor_id" +
                 " WHERE upper(first_name) = ? AND upper(last_name) = ? AND " +
                 "general_specialty_id = ? AND specific_specialty_id = ?";

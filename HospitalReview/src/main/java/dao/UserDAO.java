@@ -62,4 +62,16 @@ public class UserDAO {
         }
         return user;
     }
+
+    public static String getUserType(int userID) throws SQLException {
+        String sql = "SELECT user_type FROM user WHERE user_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, userID);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        String result = new String();
+        while (resultSet.next()) {
+            result = resultSet.getString(1);
+        }
+        return result;
+    }
 }

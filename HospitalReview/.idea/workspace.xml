@@ -6,12 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97fd0776-9f20-40b5-a7c7-bff5bc6a686b" name="Default" comment="">
+    <list default="true" id="97fd0776-9f20-40b5-a7c7-bff5bc6a686b" name="Default" comment="Some more DAO">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/DoctorDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DoctorDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Doctor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HospitalReviewDatabaseModel.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/../HospitalReviewDatabaseModel.mwb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HospitalReviewDatabaseModel.mwb.bak" beforeDir="false" afterPath="$PROJECT_DIR$/../HospitalReviewDatabaseModel.mwb.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/RatingDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/RatingDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../generate_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../generate_db.sql" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -27,11 +27,20 @@
       <file leaf-file-name="PatientDAO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/dao/PatientDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2520">
+            <state relative-caret-position="1590">
               <caret line="131" column="36" selection-start-line="131" selection-start-column="36" selection-end-line="131" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RatingDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dao/RatingDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="120" column="22" selection-start-line="120" selection-start-column="22" selection-end-line="120" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -48,7 +57,7 @@
       <file leaf-file-name="HospitalDAO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/dao/HospitalDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
+            <state relative-caret-position="1710">
               <caret line="124" selection-start-line="124" selection-end-line="124" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -60,7 +69,7 @@
       <file leaf-file-name="AdminDAO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/dao/AdminDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="620">
+            <state relative-caret-position="484">
               <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -69,14 +78,47 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DoctorDAO.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dao/DoctorDAO.java">
+      <file leaf-file-name="CommentDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dao/CommentDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="103" column="86" selection-start-line="103" selection-start-column="86" selection-end-line="103" selection-end-column="86" />
+            <state relative-caret-position="-1176">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DoctorDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dao/DoctorDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="250">
+              <caret line="125" column="62" lean-forward="true" selection-start-line="125" selection-start-column="62" selection-end-line="125" selection-end-column="62" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GeneralSpecialtyDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dao/GeneralSpecialtyDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1320">
+              <caret line="66" selection-start-line="66" selection-end-line="66" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserDAO.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dao/UserDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="8" column="29" lean-forward="true" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -133,9 +175,7 @@
         <option value="$PROJECT_DIR$/src/main/java/model/Patient.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Rating.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Comment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/CommentDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dao/RatingDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/HospitalDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/GeneralSpecialtyDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/SpecificSpecialtyDAO.java" />
@@ -143,6 +183,8 @@
         <option value="$PROJECT_DIR$/src/main/java/dao/PatientDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Doctor.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/DoctorDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dao/RatingDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" />
       </list>
     </option>
   </component>
@@ -513,7 +555,7 @@
       <workItem from="1524576279001" duration="2436000" />
       <workItem from="1524620765105" duration="2437000" />
       <workItem from="1524664839271" duration="962000" />
-      <workItem from="1524723589612" duration="3724000" />
+      <workItem from="1524723589612" duration="5125000" />
     </task>
     <task id="LOCAL-00001" summary="Added model">
       <created>1524419289907</created>
@@ -592,11 +634,18 @@
       <option name="project" value="LOCAL" />
       <updated>1524621922630</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Some more DAO">
+      <created>1524730036069</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1524730036070</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41019000" />
+    <option name="totallyTimeSpent" value="42420000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -654,13 +703,6 @@
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/CommentDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/HospitalDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1040">
@@ -726,6 +768,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -743,6 +788,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -821,6 +869,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
           <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -828,6 +879,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -953,13 +1007,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/UserDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/Patient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
@@ -967,51 +1014,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/AdminDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/CommentDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1296">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/PatientDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2520">
-          <caret line="131" column="36" selection-start-line="131" selection-start-column="36" selection-end-line="131" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/Doctor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
           <caret line="62" column="39" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/RatingDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="119" column="5" lean-forward="true" selection-start-line="119" selection-start-column="5" selection-end-line="119" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/GeneralSpecialtyDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1320">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
         </state>
       </provider>
     </entry>
@@ -1027,8 +1033,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/HospitalDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
+        <state relative-caret-position="1710">
           <caret line="124" selection-start-line="124" selection-end-line="124" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/PatientDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1590">
+          <caret line="131" column="36" selection-start-line="131" selection-start-column="36" selection-end-line="131" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/RatingDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="120" column="22" selection-start-line="120" selection-start-column="22" selection-end-line="120" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/AdminDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/CommentDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1176">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1037,11 +1087,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/DoctorDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="103" column="86" selection-start-line="103" selection-start-column="86" selection-end-line="103" selection-end-column="86" />
+        <state relative-caret-position="250">
+          <caret line="125" column="62" lean-forward="true" selection-start-line="125" selection-start-column="62" selection-end-line="125" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/GeneralSpecialtyDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="66" selection-start-line="66" selection-end-line="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/UserDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="8" column="29" lean-forward="true" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
         </state>
       </provider>
     </entry>

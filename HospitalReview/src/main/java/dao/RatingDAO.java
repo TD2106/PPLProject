@@ -110,12 +110,14 @@ public class RatingDAO {
     }
 
     public static double getAverageRatingOfADoctor(int doctorID) throws SQLException {
-        ArrayList<Rating> ratings = getAllEnableRatingOfADoctor(doctorID);
+        String sql = "SELECT AVG(rating) FROM rating WHERE doctor_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, doctorID);
         double result = 0;
-        for (Rating rating : ratings) {
-            result += rating.getRating();
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            result = resultSet.getDouble(1);
         }
-        if (ratings.size() == 0) return 0;
-        else return (result / ratings.size());
+        return result;
     }
 }
