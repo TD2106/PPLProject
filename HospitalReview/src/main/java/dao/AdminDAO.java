@@ -5,6 +5,7 @@ import model.Admin;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AdminDAO {
@@ -20,6 +21,17 @@ public class AdminDAO {
         }
     }
 
+    public static Admin getAdmin(int adminID) throws SQLException {
+        String sql = "SELECT email, password, user_type FROM user WHERE user_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, adminID);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        Admin result = null;
+        while (resultSet.next()) {
+            result = new Admin(adminID, resultSet.getString(1), resultSet.getString(2), resultSet.getString(3));
+        }
+        return result;
+    }
     public static void addAdmin(String email, String password) throws SQLException {
         String sql = "INSERT INTO user(email,password,user_type) VALUES(?,?,'admin')";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
