@@ -63,6 +63,19 @@ public class UserDAO {
         return user;
     }
 
+    public static int getUserID(String email, String password) throws SQLException {
+        String sql = "SELECT user_id FROM user WHERE email = ? AND password = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1, email);
+        preparedStatement.setString(2, password);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        int result = 0;
+        while (resultSet.next()) {
+            result = resultSet.getInt(1);
+        }
+        return result;
+    }
+
     public static String getUserType(int userID) throws SQLException {
         String sql = "SELECT user_type FROM user WHERE user_id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
