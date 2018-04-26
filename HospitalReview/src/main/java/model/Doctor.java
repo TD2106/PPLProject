@@ -5,13 +5,13 @@ public class Doctor {
     private String firstName;
     private String lastName;
     private String degree;
-    private boolean isAcceptInsurance;
+    private int isAcceptInsurance;
     private String officeHour;
     private int hospitalID;
     private int generalSpecialtyID;
     private double averageRating;
 
-    public Doctor(int doctorID, String firstName, String lastName, String degree, boolean isAcceptInsurance,
+    public Doctor(int doctorID, String firstName, String lastName, String degree, int isAcceptInsurance,
                   String officeHour, int hospitalID, int generalSpecialtyID, double averageRating) {
         this.doctorID = doctorID;
         this.firstName = firstName;
@@ -56,11 +56,11 @@ public class Doctor {
         this.degree = degree;
     }
 
-    public boolean isAcceptInsurance() {
+    public int isAcceptInsurance() {
         return isAcceptInsurance;
     }
 
-    public void setAcceptInsurance(boolean acceptInsurance) {
+    public void setAcceptInsurance(int acceptInsurance) {
         isAcceptInsurance = acceptInsurance;
     }
 
