@@ -134,5 +134,11 @@ public class DoctorDAO {
         return doctors;
     }
 
-
+    public static void addDoctorLanguage(int doctorID, String language) throws SQLException{
+        String sql = "INSERT INTO doctor_language(doctor_id,language) VALUES(?,?)";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, doctorID);
+        preparedStatement.setString(2, language);
+        preparedStatement.execute();
+    }
 }
