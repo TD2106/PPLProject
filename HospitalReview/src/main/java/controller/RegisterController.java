@@ -31,7 +31,7 @@ public class RegisterController extends HttpServlet {
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-                response.sendRedirect("/sucessful_register"); // sua lai khi code front end
+                response.sendRedirect("user/index.jsp"); // sua lai khi code front end
                 return;
             }
             case "add_hospital": {
@@ -45,7 +45,7 @@ public class RegisterController extends HttpServlet {
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-                response.sendRedirect("/sucessful_register"); // sua lai khi code front end
+                response.sendRedirect("user/index.jsp"); // sua lai khi code front end
                 return;
             }
             case "add_admin": {
