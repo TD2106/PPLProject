@@ -10,7 +10,7 @@
         <div class="page-header">
             <h1><%=type.substring(0, 1).toUpperCase() + type.substring(1)%> sign in</h1>
         </div>
-        <form action="../LoginController?userType=<%=type%>" method="post">
+        <form action="../login?userType=<%=type%>" method="post">
             <div class="form-group">
                 Email
                 <br>

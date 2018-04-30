@@ -45,9 +45,9 @@ public class LoginController extends HttpServlet {
                         break;
                     }
                 }
-                response.sendRedirect("user/index.jsp"); // Correct this when code front-end
+                response.sendRedirect("/index"); // Correct this when code front-end
             } else {
-                response.sendRedirect("user/login.jsp?type=Patient&result=invalid"); // Correct this when code front-end
+                response.sendRedirect("/wrong"); // Correct this when code front-end
             }
         } catch (Exception e) {
             e.printStackTrace();

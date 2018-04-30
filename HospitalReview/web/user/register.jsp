@@ -11,7 +11,7 @@
             <h1><%=action.substring(4, 5).toUpperCase() + action.substring(5)%> sign up</h1>
         </div>
 
-        <form action="../RegisterController?action=<%=action%>%>" method="post">
+        <form action="../register?action=<%=action%>" method="post">
             <div class="form-group">
                 Email
                 <br>
@@ -23,7 +23,7 @@
                 <input type="password" name="password" class="form-control" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
             </div>
     <%
-        if(action.equals("add_hospital")){
+        if(action.equals("add_patient")){
     %>
             <div class="form-group">
                 First Name
@@ -53,7 +53,7 @@
                 <input type="text" name="address" class="form-control" required>
             </div>
     <%
-        }else if(action.equals("add_patient")){
+        }else if(action.equals("add_hospital")){
     %>
             <div class="form-group">
                 Hospital Name

@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "EditProfileController", urlPatterns = "/editProfile")
+@WebServlet(name = "EditProfileController", urlPatterns = "/edit_profile")
 public class EditProfileController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
