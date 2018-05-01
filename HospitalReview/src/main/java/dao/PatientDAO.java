@@ -131,4 +131,16 @@ public class PatientDAO {
         preparedStatement.setString(2, language);
         preparedStatement.execute();
     }
+
+    public static ArrayList<String> getPatientLanguage(int patientID) throws SQLException {
+        String sql = "SELECT language FROM patient_language WHERE patient_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, patientID);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        ArrayList<String> languages = new ArrayList<>();
+        while (resultSet.next()) {
+            languages.add(resultSet.getString(1));
+        }
+        return languages;
+    }
 }
