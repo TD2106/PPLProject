@@ -26,12 +26,13 @@ public class RegisterController extends HttpServlet {
                 String lastName = request.getParameter("last_name");
                 String gender = request.getParameter("gender");
                 String address = request.getParameter("address");
+                System.out.println(action + ' ' + email + ' ' + password + ' ' + firstName + ' ' + lastName + ' ' + gender + ' ' + address);
                 try {
                     PatientDAO.addPatient(email, password, firstName, lastName, gender, address);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-                response.sendRedirect("/sucessful_register"); // sua lai khi code front end
+                response.sendRedirect("/user"); // sua lai khi code front end
                 return;
             }
             case "add_hospital": {
@@ -45,7 +46,7 @@ public class RegisterController extends HttpServlet {
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-                response.sendRedirect("/sucessful_register"); // sua lai khi code front end
+                response.sendRedirect("/user"); // sua lai khi code front end
                 return;
             }
             case "add_admin": {
