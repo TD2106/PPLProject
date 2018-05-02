@@ -80,7 +80,7 @@
 <%
                     }else{
 %>
-                        <li id="profile"><a href="../member/member.jsp?id=<%=user.getUserID()%>" title="View your profile">Hello <%=user.getUserID()%></a></li>
+                        <li id="profile"><a href="../member/member.jsp?id=<%=user.getUserID()%>" title="View your profile">Hello <%=user.getEmail().split("@")[0]%></a></li>
                         <li><a href="../MemberController?action=logout">Logout</a></li>
 <%
                     }
