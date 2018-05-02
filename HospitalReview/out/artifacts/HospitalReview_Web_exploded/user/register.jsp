@@ -11,7 +11,7 @@
             <h1><%=action.substring(4, 5).toUpperCase() + action.substring(5)%> sign up</h1>
         </div>
 
-        <form action="../register" method="post">
+        <form action="../register?action=<%=action%>" method="post">
             <div class="form-group">
                 Email
                 <br>
@@ -83,7 +83,6 @@
     <%
         }
     %>
-            <input type="hidden" name="action" value="<%=action%>">
             <div id="invalidReg" role="alert">
 
             </div>
