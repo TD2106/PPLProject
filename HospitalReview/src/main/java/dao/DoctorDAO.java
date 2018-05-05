@@ -68,6 +68,17 @@ public class DoctorDAO {
         return result;
     }
 
+    public static ArrayList<Doctor> getAllDoctor() throws SQLException{
+        String sql = "SELECT doctor_id FROM doctor";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        ArrayList<Doctor> doctors = new ArrayList<>();
+        while (resultSet.next()) {
+            doctors.add(getDoctor(resultSet.getInt(1)));
+        }
+        return doctors;
+    }
+
     public static ArrayList<Doctor> getAllDoctorFromHospital(int hospitalID) throws SQLException {
         String sql = "SELECT doctor_id FROM doctor WHERE hospital_id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -141,4 +152,11 @@ public class DoctorDAO {
         preparedStatement.setString(2, language);
         preparedStatement.execute();
     }
+
+    /*public static void main(String[] args) throws SQLException,ClassNotFoundException{
+        ArrayList<Doctor> doctors = DoctorDAO.getAllDoctor();
+        for(Doctor doctor: doctors){
+            System.out.println(doctor.getAverageRating());
+        }
+    }*/
 }

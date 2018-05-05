@@ -36,11 +36,25 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../user/index.jsp"><span class="glyphicon glyphicon-film" aria-hidden="true"></span>HR</a>
+                <a class="navbar-brand" href="../user/index.jsp"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>HR</a>
             </div>
-
             <div class="collapse navbar-collapse" id="bs-nav-demo">
-                <form action="../user/search.jsp" method="POST" class="navbar-form navbar-left">
+                <ul class="nav navbar-nav">
+                    <li id="hospital" class="dropdown">
+                        <a href="#" id="hospitalName" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hospital<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+<%
+    List<Hospital> hospitals = HospitalDAO.getAllHospital();
+    for(Hospital hospital: hospitals){
+%>
+                            <li><a href="../hospital/index.jsp?id=<%=hospital.getHospitalID()%>" class="btn"><%=hospital.getHospitalName()%></a></li>
+<%
+    }
+%>
+                        </ul>
+                    </li>
+                </ul>
+                <form action="../user/search.jsp?specialty=&specific=&hospital=" method="POST" class="navbar-form navbar-left">
                     <div class="form-group">
                         <input name="keyword" type="text" class="form-control" id="search" placeholder="Search Movie">
 
@@ -50,11 +64,13 @@
                 </form>
                 <div class="nav navbar-nav navbar-right">
 <%
-                        User user = (User)session.getAttribute("user");
+    Admin admin = (Admin) session.getAttribute("admin");
+    Patient patient = (Patient) session.getAttribute("patient");
+    Hospital hospital = (Hospital) session.getAttribute("hospital");
 %>
                     <li id="adSearch"><a href="../user/advanceSearch.jsp">Advance Search</a></li>
 <%
-                        if(user == null){
+                        if(admin == null && patient == null && hospital == null){
 %>
                     <ul class="nav navbar-nav">
                         <li id="login" class="dropdown">
@@ -80,8 +96,8 @@
 <%
                     }else{
 %>
-                        <li id="profile"><a href="../member/member.jsp?id=<%=user.getUserID()%>" title="View your profile">Hello <%=user.getEmail().split("@")[0]%></a></li>
-                        <li><a href="../MemberController?action=logout">Logout</a></li>
+                        <li id="profile"><a href="../member/member.jsp?id=<%=admin != null ? admin.getUserID() : patient != null ? patient.getUserID() : hospital != null ? hospital.getUserID(): null%>" title="View your profile">Hello <%=admin != null ? admin.getEmail().split("@")[0] : patient != null ? patient.getEmail().split("@")[0] : hospital != null ? hospital.getEmail().split("@")[0]: null%></a></li>
+                        <li><li><a href="../logout">Logout</a></li>
 <%
                     }
 %>

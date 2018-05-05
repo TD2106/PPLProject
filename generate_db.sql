@@ -88,7 +88,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `HospitalReview`.`doctor_BEFORE_DELETE` BEFORE DELETE ON `doctor` FOR EACH ROW
+/*!50003 CREATE*/ /*!50003 TRIGGER `HospitalReview`.`doctor_BEFORE_DELETE` BEFORE DELETE ON `doctor` FOR EACH ROW
 BEGIN
 	DELETE FROM doctor_rating WHERE old.doctor_id = doctor_rating.doctor_id;
     DELETE FROM comment WHERE old.doctor_id = comment.doctor_id;
@@ -267,7 +267,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `HospitalReview`.`general_specialty_BEFORE_DELETE` BEFORE DELETE ON `general_specialty` FOR EACH ROW
+/*!50003 CREATE*/ /*!50003 TRIGGER `HospitalReview`.`general_specialty_BEFORE_DELETE` BEFORE DELETE ON `general_specialty` FOR EACH ROW
 BEGIN
 	UPDATE doctor SET doctor.general_specialty_id = 0 WHERE doctor.general_specialty_id = old.general_specialty_id;
     DELETE FROM specific_special_ty WHERE specific_specialty.general_specialty_id = old.general_specialty_id;
@@ -317,7 +317,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `HospitalReview`.`hospital_BEFORE_DELETE` BEFORE DELETE ON `hospital` FOR EACH ROW
+/*!50003 CREATE*/ /*!50003 TRIGGER `HospitalReview`.`hospital_BEFORE_DELETE` BEFORE DELETE ON `hospital` FOR EACH ROW
 BEGIN
 	DELETE FROM doctor WHERE doctor.hospital_id = old.hospital_id;
     DELETE FROM favorite_hospital WHERE favorite_hospital.hospital_id = old.hospital_id;
@@ -366,7 +366,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `HospitalReview`.`patient_BEFORE_DELETE` BEFORE DELETE ON `patient` FOR EACH ROW
+/*!50003 CREATE*/ /*!50003 TRIGGER `HospitalReview`.`patient_BEFORE_DELETE` BEFORE DELETE ON `patient` FOR EACH ROW
 BEGIN
 	DELETE FROM comment WHERE old.patient_id = comment.patient_id;
     DELETE FROM doctor_rating WHERE old.patient_id = doctor_rating.patient_id;
@@ -439,7 +439,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `HospitalReview`.`specific_specialty_BEFORE_DELETE` BEFORE DELETE ON `specific_specialty` FOR EACH ROW
+/*!50003 CREATE*/ /*!50003 TRIGGER `HospitalReview`.`specific_specialty_BEFORE_DELETE` BEFORE DELETE ON `specific_specialty` FOR EACH ROW
 BEGIN
 	 DELETE FROM doctor_specific_specialty WHERE specific_specialty.specific_specialty_id = doctor_specific_specialty.specific_specialty_id;
 END */;;
@@ -484,7 +484,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `HospitalReview`.`user_BEFORE_DELETE` BEFORE DELETE ON `user` FOR EACH ROW
+/*!50003 CREATE*/ /*!50003 TRIGGER `HospitalReview`.`user_BEFORE_DELETE` BEFORE DELETE ON `user` FOR EACH ROW
 BEGIN
 	DELETE FROM hospital WHERE old.user_id = hospital.hospital_id;
     DELETE FROM patient WHERE old.user_id = patient.patient_id;
@@ -508,7 +508,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `add_comment`(IN patient_id INT,IN doctor_id INT,IN content varchar(300))
+CREATE PROCEDURE `add_comment`(IN patient_id INT,IN doctor_id INT,IN content varchar(300))
 BEGIN
 	INSERT INTO comment(patient_id,doctor_id,comment_content,comment_date,comment_time,is_enable)
     VALUES (patient_id,doctor_id,content,CURDATE(),TIME(NOW()),1);
@@ -528,7 +528,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `add_doctor`(IN first_name VARCHAR(45), IN last_name VARCHAR(45), IN degree VARCHAR(100),
+CREATE PROCEDURE `add_doctor`(IN first_name VARCHAR(45), IN last_name VARCHAR(45), IN degree VARCHAR(100),
 								IN accept_insurance INT, IN office_hour VARCHAR(45), IN hospital_id INT, IN general_specialty_id INT)
 BEGIN
 	INSERT INTO doctor(first_name,last_name,degree,accept_insurance,office_hour,hospital_id,general_specialty_id) 
@@ -549,7 +549,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `add_hospital`(IN email varchar(100), IN password varchar(300),
+CREATE PROCEDURE `add_hospital`(IN email varchar(100), IN password varchar(300),
 				IN hospital_name varchar(200),IN address varchar(300),IN website varchar(300),
                 IN hospital_admin_name varchar(100),IN hospital_admin_email varchar(100))
 BEGIN
@@ -573,7 +573,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `add_patient`(IN email varchar(100), IN password varchar(300),
+CREATE PROCEDURE `add_patient`(IN email varchar(100), IN password varchar(300),
 				IN first_name varchar(45),IN last_name varchar(45),IN gender varchar(45),
                 IN address varchar(300))
 BEGIN
@@ -597,7 +597,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_doctor`(IN doctor_id INT, IN first_name VARCHAR(45), IN last_name VARCHAR(45), IN degree VARCHAR(100),
+CREATE PROCEDURE `update_doctor`(IN doctor_id INT, IN first_name VARCHAR(45), IN last_name VARCHAR(45), IN degree VARCHAR(100),
 								IN accept_insurance INT, IN office_hour VARCHAR(45), IN hospital_id INT, IN general_specialty_id INT)
 BEGIN
 	UPDATE doctor SET doctor.first_name = first_name, doctor.last_name = last_name, doctor.degree = degree,
@@ -620,7 +620,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_hospital`(IN hospital_id INT, IN email varchar(100), IN password varchar(300),
+CREATE PROCEDURE `update_hospital`(IN hospital_id INT, IN email varchar(100), IN password varchar(300),
 				IN hospital_name varchar(200),IN address varchar(300),IN website varchar(300),
                 IN hospital_admin_name varchar(100),IN hospital_admin_email varchar(100))
 BEGIN
@@ -644,7 +644,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_patient`(IN patient_id INT, IN email varchar(100), IN password varchar(300),
+CREATE PROCEDURE `update_patient`(IN patient_id INT, IN email varchar(100), IN password varchar(300),
 				IN first_name varchar(45),IN last_name varchar(45),IN gender varchar(45),
                 IN address varchar(300))
 BEGIN

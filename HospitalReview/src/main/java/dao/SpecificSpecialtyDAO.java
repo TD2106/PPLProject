@@ -3,10 +3,7 @@ package dao;
 import dbconnection.DBConnection;
 import model.SpecificSpecialty;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class SpecificSpecialtyDAO {
@@ -44,8 +41,19 @@ public class SpecificSpecialtyDAO {
         preparedStatement.execute();
     }
 
+    public static ArrayList<SpecificSpecialty> getAllSpecificSpecialty() throws SQLException{
+        String sql = "SELECT specific_specialty_id FROM specific_specialty";
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+        ArrayList<SpecificSpecialty> specificSpecialties = new ArrayList<>();
+        while (resultSet.next()){
+            specificSpecialties.add(getSpecificSpecialty(resultSet.getInt("specific_specialty_id")));
+        }
+        return specificSpecialties;
+    }
+
     public static SpecificSpecialty getSpecificSpecialty(int specificSpecialtyID) throws SQLException {
-        String sql = "SELECT specific_specialty, general_specialty_id FROM specific_specialty WHERE specific_specialty = ?";
+        String sql = "SELECT specific_specialty, general_specialty_id FROM specific_specialty WHERE specific_specialty_id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1, specificSpecialtyID);
         SpecificSpecialty result = null;
@@ -80,4 +88,11 @@ public class SpecificSpecialtyDAO {
         }
         return specificSpecialties;
     }
+
+    /*public static void main(String[] args) throws SQLException,ClassNotFoundException{
+        ArrayList<SpecificSpecialty> specifics = SpecificSpecialtyDAO.getAllSpecificSpecialty();
+        for(SpecificSpecialty specific: specifics){
+            System.out.println(specific.getSpecificSpecialty());
+        }
+    }*/
 }

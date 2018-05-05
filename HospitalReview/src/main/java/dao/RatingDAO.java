@@ -23,7 +23,7 @@ public class RatingDAO {
     }
 
     public static void deleteRating(int patientID, int doctorID) throws SQLException {
-        String sql = "DELETE FROM rating WHERE patient_id = ? AND doctor_id = ?";
+        String sql = "DELETE FROM doctor_rating WHERE patient_id = ? AND doctor_id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1, patientID);
         preparedStatement.setInt(2, doctorID);
@@ -31,7 +31,7 @@ public class RatingDAO {
     }
 
     public static boolean isRatingExists(int patientID, int doctorID) throws SQLException {
-        String sql = "SELECT rating FROM rating WHERE patient_id = ? AND doctor_id = ?";
+        String sql = "SELECT doctor_rating FROM rating WHERE patient_id = ? AND doctor_id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1, patientID);
         preparedStatement.setInt(2, doctorID);
@@ -40,7 +40,7 @@ public class RatingDAO {
     }
 
     public static void addRating(int patientID, int doctorID, int rating) throws SQLException {
-        String sql = "INSERT INTO rating(patient_id,doctor_id,rating,is_enable) VALUES(?,?,?,1)";
+        String sql = "INSERT INTO doctor_rating(patient_id,doctor_id,rating,is_enable) VALUES(?,?,?,1)";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1, patientID);
         preparedStatement.setInt(2, doctorID);
@@ -49,7 +49,7 @@ public class RatingDAO {
     }
 
     public static void updateRating(int patientID, int doctorID, int rating) throws SQLException {
-        String sql = "UPDATE rating SET rating = ? WHERE patient_id = ? and doctor_id = ?";
+        String sql = "UPDATE doctor_rating SET rating = ? WHERE patient_id = ? and doctor_id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1, rating);
         preparedStatement.setInt(2, patientID);
@@ -58,7 +58,7 @@ public class RatingDAO {
     }
 
     public static void enableRating(int patientID, int doctorID) throws SQLException {
-        String sql = "UPDATE rating SET is_enable = 1 WHERE patient_id = ? and doctor_id = ?";
+        String sql = "UPDATE doctor_rating SET is_enable = 1 WHERE patient_id = ? and doctor_id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1, patientID);
         preparedStatement.setInt(2, doctorID);
@@ -66,7 +66,7 @@ public class RatingDAO {
     }
 
     public static void disableRating(int patientID, int doctorID) throws SQLException {
-        String sql = "UPDATE rating SET is_enable = 0 WHERE patient_id = ? and doctor_id = ?";
+        String sql = "UPDATE doctor_rating SET is_enable = 0 WHERE patient_id = ? and doctor_id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1, patientID);
         preparedStatement.setInt(2, doctorID);
@@ -74,7 +74,7 @@ public class RatingDAO {
     }
 
     public static ArrayList<Rating> getAllRatingOfADoctor(int doctorID) throws SQLException {
-        String sql = "SELECT patient_id,rating,is_enable FROM rating WHERE doctor_id = ?";
+        String sql = "SELECT patient_id,rating,is_enable FROM doctor_rating WHERE doctor_id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1, doctorID);
         ArrayList<Rating> ratings = new ArrayList<>();
@@ -86,7 +86,7 @@ public class RatingDAO {
     }
 
     public static ArrayList<Rating> getAllEnableRatingOfADoctor(int doctorID) throws SQLException {
-        String sql = "SELECT patient_id,rating FROM rating WHERE doctor_id = ? and is_enable = 1";
+        String sql = "SELECT patient_id,rating FROM doctor_rating WHERE doctor_id = ? and is_enable = 1";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1, doctorID);
         ArrayList<Rating> ratings = new ArrayList<>();
@@ -98,7 +98,7 @@ public class RatingDAO {
     }
 
     public static ArrayList<Rating> getAllRatingOfAPatient(int patientID) throws SQLException {
-        String sql = "SELECT doctor_id,rating,is_enable FROM rating WHERE patient_id = ?";
+        String sql = "SELECT doctor_id,rating,is_enable FROM doctor_rating WHERE patient_id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1, patientID);
         ArrayList<Rating> ratings = new ArrayList<>();
@@ -110,7 +110,7 @@ public class RatingDAO {
     }
 
     public static double getAverageRatingOfADoctor(int doctorID) throws SQLException {
-        String sql = "SELECT AVG(rating) FROM rating WHERE doctor_id = ?";
+        String sql = "SELECT AVG(rating) FROM doctor_rating WHERE doctor_id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1, doctorID);
         double result = 0;

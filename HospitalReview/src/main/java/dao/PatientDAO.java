@@ -46,6 +46,24 @@ public class PatientDAO {
         preparedStatement.execute();
     }
 
+    public static boolean isInFavoriteDoctor(int patientID, int doctorID) throws SQLException{
+        String sql = "SELECT * FROM favorite_doctor WHERE patient_id = ? AND doctor_id = ?";
+        PreparedStatement sqlStatement = connection.prepareStatement(sql);
+        sqlStatement.setString(1,Integer.toString(patientID));
+        sqlStatement.setString(2,Integer.toString(doctorID));
+        ResultSet resultSet = sqlStatement.executeQuery();
+        return resultSet.next();
+    }
+
+    public static boolean isInFavoriteHospital(int patientID, int hospitalID) throws SQLException{
+        String sql = "SELECT * FROM favorite_hospital WHERE patient_id = ? AND hospital_id = ?";
+        PreparedStatement sqlStatement = connection.prepareStatement(sql);
+        sqlStatement.setString(1,Integer.toString(patientID));
+        sqlStatement.setString(2,Integer.toString(hospitalID));
+        ResultSet resultSet = sqlStatement.executeQuery();
+        return resultSet.next();
+    }
+
     public static void addFavoriteHospital(int patientID, int hospitalID) throws SQLException {
         String sql = "INSERT INTO favorite_hospital(patient_id,hospital_id) VALUES(?,?)";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -56,6 +74,7 @@ public class PatientDAO {
 
     public static void addFavoriteDoctor(int patientID, int doctorID) throws SQLException {
         String sql = "INSERT INTO favorite_doctor(patient_id,doctor_id) VALUES(?,?)";
+        System.out.println("patientID = " + patientID + " doctorID = " + doctorID);
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1, patientID);
         preparedStatement.setInt(2, doctorID);
@@ -131,4 +150,8 @@ public class PatientDAO {
         preparedStatement.setString(2, language);
         preparedStatement.execute();
     }
+
+    /*public static void main(String[] args) throws SQLException,ClassNotFoundException{
+        PatientDAO.addFavoriteDoctor(3, 1);
+    }*/
 }

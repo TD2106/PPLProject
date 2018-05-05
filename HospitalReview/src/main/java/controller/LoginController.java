@@ -31,17 +31,17 @@ public class LoginController extends HttpServlet {
                 switch (userType) {
                     case "admin": {
                         Admin user = AdminDAO.getAdmin(userID);
-                        session.setAttribute("user", user);
+                        session.setAttribute("admin", user);
                         break;
                     }
                     case "patient": {
                         Patient user = PatientDAO.getPatient(userID);
-                        session.setAttribute("user", user);
+                        session.setAttribute("patient", user);
                         break;
                     }
                     case "hospital": {
                         Hospital user = HospitalDAO.getHospital(userID);
-                        session.setAttribute("user", user);
+                        session.setAttribute("hospital", user);
                         break;
                     }
                 }
