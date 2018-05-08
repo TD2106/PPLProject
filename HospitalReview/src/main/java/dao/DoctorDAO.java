@@ -45,6 +45,7 @@ public class DoctorDAO {
         callableStatement.setString(6, officeHour);
         callableStatement.setInt(7, hospitalID);
         callableStatement.setInt(8, generalSpecialtyID);
+        callableStatement.execute();
     }
 
     public static void deleteDoctor(int doctorID) throws SQLException {
