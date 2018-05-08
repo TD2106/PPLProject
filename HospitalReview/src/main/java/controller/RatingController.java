@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "EditProfileController", urlPatterns = "editprofile")
-public class EditProfileController extends HttpServlet {
+@WebServlet(name = "RatingController", urlPatterns = "/rating_controller")
+public class RatingController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         if (session.getAttribute("user") == null) {
@@ -20,4 +20,5 @@ public class EditProfileController extends HttpServlet {
         }
         User user = (User) session.getAttribute("user");
     }
+
 }
