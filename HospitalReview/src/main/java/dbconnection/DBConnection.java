@@ -18,14 +18,4 @@ public class DBConnection {
         }
         return dbConnection;
     }
-
-    public static void main(String[] args) {
-        try {
-            getConnection();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
 }

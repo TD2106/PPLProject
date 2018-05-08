@@ -153,4 +153,32 @@ public class DoctorDAO {
         }
         return languages;
     }
+
+    public static ArrayList<Doctor> getAllDoctorByGeneralSpecialty(int generalSpecialtyID) throws SQLException {
+        ArrayList<Doctor> doctors = new ArrayList<>();
+        String sql = "SELECT doctor_id FROM doctor WHERE general_specialty_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, generalSpecialtyID);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            doctors.add(getDoctor(resultSet.getInt(1)));
+        }
+        return doctors;
+    }
+
+    public static ArrayList<Doctor> getAllDoctorByNGeneralSpecialtyAndSpecificSpecialty
+            (int generalSpecialtyID, int specificSpecialtyID) throws SQLException {
+        ArrayList<Doctor> doctors = new ArrayList<>();
+        String sql = "SELECT DISTINCT doctor_id FROM doctor INNER JOIN doctor_specific_specialty ON " +
+                "doctor.doctor_id = doctor_specific_specialty.doctor_id" +
+                " WHERE general_specialty_id = ? AND specific_specialty_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, generalSpecialtyID);
+        preparedStatement.setInt(2, specificSpecialtyID);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            doctors.add(getDoctor(resultSet.getInt(1)));
+        }
+        return doctors;
+    }
 }
