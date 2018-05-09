@@ -21,6 +21,16 @@
             <li class="list-group-item">Office hours: <%=foundDoctor.getOfficeHour()%></li>
             <li class="list-group-item">Average Rating: <%=foundDoctor.getAverageRating()%></li>
         </ul>
+        <ul style="text-align: center;" class="list-group">
+            <li class="list-group-item">Language</li>
+<%
+    for(String doctorLanguage: DoctorDAO.getAllDoctorLanguages(doctor_id)){
+%>
+            <li class="list-group-item"><%=doctorLanguage.substring(0, 1).toUpperCase() + doctorLanguage.substring(1)%></li>
+<%
+    }
+%>
+        </ul>
 <%
     if(patient != null){
         if(!PatientDAO.isInFavoriteDoctor(patient.getPatientID(), doctor_id)){
